@@ -34,10 +34,8 @@ export const App = () => {
         }
 
         const normalizedImages = API.normalizedImages(data.hits);
-        setIsLoading(false);
         setImage(prevImages => [...prevImages, ...normalizedImages]);
         setIsLastPage(page >= Math.ceil(data.totalHits / 12));
-        setError(null);
       } catch (error) {
         setError(error.message);
         toast.error('Sorry, something went wrong.');
